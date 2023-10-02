@@ -1,0 +1,39 @@
+!jest.config.js
+node_modules
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+.vscode
+
+
+# Sveltekit gitignore
+.DS_Store
+node_modules
+/build
+.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+.vercel
+.output
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
