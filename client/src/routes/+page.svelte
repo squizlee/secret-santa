@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	const test_input =
-		'John Smith john.smith@example.com, Mary Johnson mary.johnson@example.com, James Brown james.brown@example.com, Emily Davis emily.davis@example.com, Michael Wilson michael.wilson@example.com';
 
 	interface Name {
 		name: string;
@@ -13,6 +11,10 @@
 	let send_emails: boolean = true;
 	let create_visual: boolean = true;
 	let display_second_form: boolean = false;
+
+	const send = (send_emails: boolean, create_visual: boolean) => {
+		console.log('sending request to backend');
+	};
 
 	const name_parser = (names_input: string) => {
 		const names_array: Name[] = [];
@@ -52,16 +54,18 @@
 
 {#if display_second_form}
 	<section in:fade class="finalise">
-		<p>Found {names.length} names</p>
-		<div>
-			<label for="email">Send emails</label>
-			<input bind:value={send_emails} type="checkbox" name="email" id="email" checked />
-		</div>
-		<div>
-			<label for="image">Create Gift Chain Image</label>
-			<input bind:value={create_visual} type="checkbox" name="image" id="image" checked />
-		</div>
-		<input type="submit" value="send!" />
+		<form on:submit|preventDefault={() => send(send_emails, create_visual)}>
+			<p>Found {names.length} names</p>
+			<div>
+				<label for="email">Send emails</label>
+				<input bind:value={send_emails} type="checkbox" name="email" id="email" checked />
+			</div>
+			<div>
+				<label for="image">Create Gift Chain Image</label>
+				<input bind:value={create_visual} type="checkbox" name="image" id="image" checked />
+			</div>
+			<input type="submit" value="send!" />
+		</form>
 	</section>
 {/if}
 
@@ -110,10 +114,6 @@
 	form > label[for='names'] {
 		font-size: 2.5rem;
 		align-self: flex-start;
-	}
-
-	.finalise > p {
-		font-size: 2.5rem;
 	}
 
 	form > *,
