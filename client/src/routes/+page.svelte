@@ -38,92 +38,66 @@
 	<meta name="secret santa" content="Secret Santa Creator" />
 </svelte:head>
 
-<header>
-	<h1>Secret <br /> Santa 🤫🎅</h1>
-</header>
+<div class="grid">
+	<header>
+		<h1>Secret <br /> Santa 🤫 🎅</h1>
+	</header>
+	<p class="secret-santa-context">
+		Secret Santa is a Western Christmas or Saint Nicholas tradition in which members of a group or
+		community are randomly assigned a person to whom they give a gift. The identity of the gift
+		giver is to remain a <b>secret and should not be revealed </b>.
+	</p>
+	<h2>ez secret santa</h2>
+	<form>
+		<h3>1. <span class="underline">Provide Names</span></h3>
+		<textarea name="names" id="names" cols="15" rows="3" />
+	</form>
+</div>
 
-<section class="container">
-	<section id="form">
-		<form action="#" on:submit|preventDefault={() => name_parser(name_input)}>
-			<label for="names">Names</label>
-			<textarea bind:value={name_input} id="names" name="names" rows="6" cols="80" />
-			<input type="submit" value="package" />
-		</form>
-	</section>
-</section>
-
-{#if display_second_form}
-	<section in:fade class="finalise">
-		<form on:submit|preventDefault={() => send(send_emails, create_visual)}>
-			<p>Found {names.length} names</p>
-			<div>
-				<label for="email">Send emails</label>
-				<input bind:value={send_emails} type="checkbox" name="email" id="email" checked />
-			</div>
-			<div>
-				<label for="image">Create Gift Chain Image</label>
-				<input bind:value={create_visual} type="checkbox" name="image" id="image" checked />
-			</div>
-			<input type="submit" value="send!" />
-		</form>
-	</section>
-{/if}
-
-<p>
+<!-- <p>
 	John Smith john.smith@example.com, Mary Johnson mary.johnson@example.com, James Brown
 	james.brown@example.com, Emily Davis emily.davis@example.com, Michael Wilson
 	michael.wilson@example.com
-</p>
-
-<!-- TODO ADD GitHub Repo link in footer tag-->
-<!-- <footer>
-	<a href="#">TODO: GH LINK</a>
-</footer> -->
+</p> -->
 
 <style>
-	h1 {
-		margin: 0;
-		font-size: 6rem;
-	}
-
 	header {
-		background-image: var(--background-image-url);
-		background-repeat: no-repeat;
+		background-image: var(--bg-img);
+		width: min-content;
+		font-size: 4rem;
 		color: red;
+		box-shadow: 0px 4px 4px 0px black;
+		padding: 8px;
+		margin-top: 20px;
+		border: 5px solid black;
 	}
 
-	.finalise {
-		background-color: var(--kelly-green);
-		margin: 0;
+	.secret-santa-context {
+		width: 45ch;
+		grid-row-start: 2;
+		margin-top: 40px;
 	}
 
-	form {
-		min-width: 60vw;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 1rem;
-		gap: 10px;
-		margin: 10px;
+	.grid {
+		grid-template-columns: 1fr 3fr;
+		grid-template-rows: 1fr 1fr;
+		display: grid;
 	}
 
-	textarea {
-		border: 2px solid black;
+	h2 {
+		font-style: italic;
+		font-size: 130px;
+		font-family: 'Vollkorn', 'Times New Roman', serif;
+		color: red;
+		grid-column-start: 2;
 	}
 
-	form > label[for='names'] {
-		font-size: 2.5rem;
-		align-self: flex-start;
+	.underline {
+		text-decoration: underline;
 	}
 
-	form > *,
-	.finalise > * {
-		font-family: 'Vollkorn', 'Times New Roman', Times, serif;
-	}
-
-	.container {
-		display: flex;
-		background-color: rgb(255, 62, 62);
-		border: 2px solid black;
+	form > * {
+		font-family: 'Vollkorn', 'Times New Roman', serif;
+		font-size: 40px;
 	}
 </style>

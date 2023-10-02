@@ -5,7 +5,7 @@
     --butterscotch: #df9a57ff;
     --lapis-lazuli: #336699ff;
     --kelly-green: #3ec300ff;
-    --background-image-url: url('https://cdn.pixabay.com/photo/2021/10/31/15/25/christmas-6757817_960_720.png');
+    --bg-img: url('/bg.png');
 }
 
 body {
@@ -16,4 +16,5 @@ body {
 
 * {
     margin: 0;
+    margin-left: 12px;
 }
