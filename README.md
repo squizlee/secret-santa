@@ -8,3 +8,7 @@ Easily prepare secret santa from a list of names
 - /: cdk application for cloudformation deployments to AWS
 
 ## Contributions Welcome
+
+- TODO: Set up SES to send email
+- TODO: Complete Front end forms to send to lambda
+- TODO: Implement visual generation
