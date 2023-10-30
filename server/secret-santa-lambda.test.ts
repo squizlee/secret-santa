@@ -1,5 +1,4 @@
 import { handler } from "./secret-santa-lambda";
-import { APIGatewayEvent } from "aws-lambda";
 
 describe("secret santa handler", () => {
   it("parses payload", async () => {
@@ -7,8 +6,8 @@ describe("secret santa handler", () => {
       body: JSON.stringify({
         names: [
           {
-            name: "Michael Wilson",
-            email: "michael.wilson@example.com",
+            name: "Michael Jerry",
+            email: "michael.jerry@example.com",
           },
           {
             name: "Porky Pig",
